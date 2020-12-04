@@ -59,9 +59,13 @@ let movies = [{
 ]
 
 window.onload = function() {
+    // call sortMoviesByRank() function
+    let sortMovies = sortMoviesByRank(movies);
 
     // Display Movies list
-    displayMovies(movies);
+
+    //displayMovies(movies);
+    displayMovies(sortMovies);
 }
 
 /**
@@ -90,7 +94,7 @@ function displayMovies(movies) {
  * HINT: replace numbers with movies .
  */
 function sortMoviesByRank(movies) {
-    // outer loop(findMax)
+    // Outer loop(findMax)
     for (let j = 0; j < movies.length - 1; j++) {
 
         let max_num = movies[j];
@@ -99,12 +103,12 @@ function sortMoviesByRank(movies) {
         // inner loop
         for (let i = j; i < movies.length; i++) {
             if (movies[i]["rank"] > max_num["rank"]) {
-                // Know max AND it's index (location)
+                // find the greatest rank movie AND it's index (location) starting from j
                 max_num = movies[i];
                 max_location = i;
             }
         }
-        // Swap the first and max item in an array 
+        // Swap the first and max Movie in Movie Database 
         movies[max_location] = movies[j];
         movies[j] = max_num;
     }
