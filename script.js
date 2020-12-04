@@ -89,26 +89,27 @@ function displayMovies(movies) {
  * HINT: make sure you are comparing the right value in in if(...)
  * HINT: replace numbers with movies .
  */
-function sortMoviesByRank(numbers) {
-    // Code from previous sortBestRatingsFirst() function
-    for (let j = 0; j < numbers.length - 1; j++) {
+function sortMoviesByRank(movies) {
+    // outer loop(findMax)
+    for (let j = 0; j < movies.length - 1; j++) {
 
-        let max_num = numbers[j];
+        let max_num = movies[j];
         let max_location = j;
 
-        for (let i = j; i < numbers.length; i++) {
-            if (numbers[i] > max_num) {
+        // inner loop
+        for (let i = j; i < movies.length; i++) {
+            if (movies[i]["rank"] > max_num["rank"]) {
                 // Know max AND it's index (location)
-                max_num = numbers[i]
-                max_location = i
+                max_num = movies[i];
+                max_location = i;
             }
         }
-        // swap the first and the last
-        numbers[max_location] = numbers[j] // --> 10
-        numbers[j] = max_num
+        // Swap the first and max item in an array 
+        movies[max_location] = movies[j];
+        movies[j] = max_num;
     }
-
-    return numbers
+    // return the sorted Movie Database
+    return movies
 }
 
 /**
