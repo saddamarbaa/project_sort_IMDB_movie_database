@@ -1,5 +1,4 @@
 /**
- * TODO: Change sortMoviesByRank() function to sort movies list by rank
  * TODO: Sort movies by id, rank, and title through dynamic function
  * TODO: Create helper function called getMaxMovieObject() for finding max movie
  */
@@ -90,30 +89,29 @@ function displayMovies(movies) {
 
 /**
  * Sort movies by rank from greatest to smallest 
- * HINT: make sure you are comparing the right value in in if(...)
- * HINT: replace numbers with movies .
  */
+
 function sortMoviesByRank(movies) {
-    // Outer loop(findMax)
     for (let j = 0; j < movies.length - 1; j++) {
 
-        let max_num = movies[j];
-        let max_location = j;
+        // {title: "Fight Club",rank: 10,id: "tt0137523"}
+        let maxObject = movies[j];
+        let maxLocation = j;
 
-        // inner loop
         for (let i = j; i < movies.length; i++) {
-            if (movies[i]["rank"] > max_num["rank"]) {
-                // find the greatest rank movie AND it's index (location) starting from j
-                max_num = movies[i];
-                max_location = i;
+            // if we found object with higher rank then replace maxObject with the new object 
+            // movies[i]["rank"] > maxObject["rank"]
+            if (movies[i].rank > maxObject.rank) {
+                maxObject = movies[i];
+                maxLocation = i;
             }
         }
-        // Swap the first and max Movie in Movie Database 
-        movies[max_location] = movies[j];
-        movies[j] = max_num;
+        // Swap the first and max object in Movie Database 
+        movies[maxLocation] = movies[j];
+        movies[j] = maxObject;
     }
     // return the sorted Movie Database
-    return movies
+    return movies;
 }
 
 /**
