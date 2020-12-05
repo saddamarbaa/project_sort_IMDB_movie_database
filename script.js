@@ -60,7 +60,7 @@ let movies = [{
 window.onload = function() {
     // call sortMoviesByRank() function
     let sortMovies = sortMoviesByRank(movies);
-    sortMovies = sortMoviesByAttr(movies, "idh");
+    sortMovies = sortMoviesByAttr(movies, "id");
 
     // Display Movies list
 
@@ -138,6 +138,13 @@ function sortMoviesByAttr(movies, sortAttr) {
                 // if we found object with higher rank then replace maxObject with the new object 
                 // movies[i]["rank"] > maxObject["rank"]
                 if (movies[i].id > maxObject.id) {
+                    maxObject = movies[i];
+                    maxLocation = i;
+                }
+            } else if (sortAttr == 'title') {
+                // if we found object with higher rank then replace maxObject with the new object 
+                // movies[i]["rank"] > maxObject["rank"]
+                if (movies[i].title > maxObject.title) {
                     maxObject = movies[i];
                     maxLocation = i;
                 }
