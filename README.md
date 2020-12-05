@@ -1,19 +1,18 @@
 # sort-IMDB-movie-database
 Project: Sort IMDB Movie Database
 
+GitHub Pages(URL FOR TESTING) : https://saddamarbaa.github.io/Preview2HtmlLv1/
+
 
 
 ## Sort movies list by Rank
 
-
-![image](https://user-images.githubusercontent.com/51326421/101243410-9dc8b100-3732-11eb-96f0-2fc045ecd382.png)
-
+![image](https://user-images.githubusercontent.com/51326421/101243892-beded100-3735-11eb-938e-ec97680c3c50.png)
 
 
 ## Sort movies list by Id
 
 ![image](https://user-images.githubusercontent.com/51326421/101243816-4d9f1e00-3735-11eb-855d-cc2a4667154b.png)
-
 
 
 
