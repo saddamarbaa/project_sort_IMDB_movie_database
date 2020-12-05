@@ -58,7 +58,7 @@ window.onload = function() {
     // call sortMoviesByRank() function
     let sortMovies = sortMoviesByRank(movies);
     // call sortMoviesByRank() function
-    sortMovies = sortMoviesByAttr(movies, "id");
+    sortMovies = sortMoviesByAttr(movies, "title");
     // Display Movies list
     displayMovies(sortMovies);
 }
