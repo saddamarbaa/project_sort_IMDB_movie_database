@@ -58,7 +58,7 @@ let movies = [{
 
 window.onload = function() {
     // call sortMoviesByRank() function
-    let sortMovies = sortMoviesByRank(movies);
+    // let sortMovies = sortMoviesByRank(movies);
     sortMovies = sortMoviesByAttr(movies, "id");
 
     // Display Movies list
@@ -92,6 +92,7 @@ function displayMovies(movies) {
  */
 
 function sortMoviesByRank(movies) {
+    // run as many times as there are object
     for (let j = 0; j < movies.length - 1; j++) {
 
         // {title: "Fight Club",rank: 10,id: "tt0137523"}
@@ -119,20 +120,15 @@ function sortMoviesByRank(movies) {
  * @param sortAttr pass in 'id', 'title', or 'rank' to sort by
  */
 
+
 function sortMoviesByAttr(movies, sortAttr) {
     for (let j = 0; j < movies.length - 1; j++) {
 
         // {title: "Fight Club",rank: 10,id: "tt0137523"}
-        let maxObject = movies[j];
-        let maxLocation = j;
+        max = getMaxMovieObject(movies, j, sortAttr)
+        let maxObject = max["MaxMovieObject"];
+        let maxLocation = max["MaxMovieIndex"];;
 
-        for (let i = j; i < movies.length; i++) {
-            // if we found object with higher sortAttr replace maxObject with the new object 
-            if (movies[i][sortAttr] > maxObject[sortAttr]) {
-                maxObject = movies[i];
-                maxLocation = i;
-            }
-        }
         // Swap between the first and max object in Movie Database 
         movies[maxLocation] = movies[j];
         movies[j] = maxObject;
@@ -144,19 +140,19 @@ function sortMoviesByAttr(movies, sortAttr) {
 
 /**
  * Retrieve the max movie object based on attribute
- * HINT: make sure you are comparing the right attribute
  */
 
 function getMaxMovieObject(movies, start, sortAttr) {
-    // Code from previous findMaxHelper() function
-    let maximum = numbers[start];
-    let max_location = start
 
-    for (let i = start; i < numbers.length; i++) {
-        if (numbers[i] > maximum) {
-            maximum = numbers[i]
-            max_location = i
+
+    let maxObject = movies[start];
+    let maxLocation = start;
+
+    for (let i = start; i < movies.length; i++) {
+        if (movies[i][sortAttr] > maxObject[sortAttr]) {
+            maxObject = movies[i];
+            maxLocation = i;
         }
     }
-    return { max_number: maximum, max_index: max_location }
+    return { MaxMovieObject: maxObject, MaxMovieIndex: maxLocation };
 }
