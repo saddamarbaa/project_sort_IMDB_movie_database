@@ -69,8 +69,8 @@ window.onload = function() {
 
 /**
  * Display list of movies in a table
- * You don't have to worry so much about this
  */
+
 function displayMovies(movies) {
     let table = "<table border='1' style='width: 100%'>";
     table += "<tr><th>ID</th><th>Name</th><th>Rank</th></tr>";
