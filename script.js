@@ -2,7 +2,7 @@
  * TODO: Create helper function called getMaxMovieObject() for finding max movie
  */
 
-// List of movies
+// List of movies (array of objects)
 
 let movies = [{
         title: "Fight Club",
@@ -59,7 +59,7 @@ let movies = [{
 window.onload = function() {
     // call sortMoviesByRank() function
     let sortMovies = sortMoviesByRank(movies);
-    sortMovies = sortMoviesByAttr(movies, "title");
+    sortMovies = sortMoviesByAttr(movies, "id");
 
     // Display Movies list
 
@@ -146,6 +146,7 @@ function sortMoviesByAttr(movies, sortAttr) {
  * Retrieve the max movie object based on attribute
  * HINT: make sure you are comparing the right attribute
  */
+
 function getMaxMovieObject(movies, start, sortAttr) {
     // Code from previous findMaxHelper() function
     let maximum = numbers[start];
