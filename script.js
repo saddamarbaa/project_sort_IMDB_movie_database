@@ -1,4 +1,4 @@
-// List of movies (array of objects)
+// List of IMDB Movie Database (array of objects)
 
 let movies = [{
         title: "Fight Club",
@@ -52,24 +52,23 @@ let movies = [{
     }
 ];
 
+// Execute a JavaScript immediately after a page has been loaded
+
 window.onload = function() {
     // call sortMoviesByRank() function
-    // let sortMovies = sortMoviesByRank(movies);
-    sortMovies = sortMoviesByAttr(movies, "title");
-
+    let sortMovies = sortMoviesByRank(movies);
+    // call sortMoviesByRank() function
+    sortMovies = sortMoviesByAttr(movies, "rank");
     // Display Movies list
-
-    //displayMovies(movies);
     displayMovies(sortMovies);
 }
 
-/**
- * Display list of movies in a table
- */
+//  Display list of movies in a table
 
 function displayMovies(movies) {
-    let table = "<table border='1' style='width: 100%'>";
-    table += "<tr><th>ID</th><th>Name</th><th>Rank</th></tr>";
+    //let table = "<table border='1' style='width: 100%'>";
+    let table = "<table style='width: 100%'>";
+    table += "<caption> <h1>Sort IMDB Movie Database</h1></caption><tr><th>ID</th><th>Name</th><th>Rank</th></tr>";
     for (let index = 0; index < movies.length; index++) {
         table += "<tr>";
         table += "<td>" + movies[index].id + "</td>";
@@ -82,38 +81,35 @@ function displayMovies(movies) {
     document.getElementById("movies-list").innerHTML = table;
 }
 
-
-/**
- * Sort movies by rank from greatest to smallest 
- */
+// Sort movies by rank from greatest to smallest
 
 function sortMoviesByRank(movies) {
-    // run as many times as there are object
+    // run as many times as there are an object
     for (let j = 0; j < movies.length - 1; j++) {
 
         // {title: "Fight Club",rank: 10,id: "tt0137523"}
         let maxObject = movies[j];
-        let maxLocation = j;
+        let maxlocation = j;
 
         for (let i = j; i < movies.length; i++) {
-            // if we found object with higher rank then replace maxObject with the new object 
+            // if we found object with higher rank replace maxObject with the new object
             // movies[i]["rank"] > maxObject["rank"]
             if (movies[i].rank > maxObject.rank) {
                 maxObject = movies[i];
-                maxLocation = i;
+                maxlocation = i;
             }
         }
-        // Swap the first and max object in Movie Database 
-        movies[maxLocation] = movies[j];
+        // Swap the first and max object in Movie Database
+        movies[maxlocation] = movies[j];
         movies[j] = maxObject;
     }
     // return the sorted Movie Database
     return movies;
 }
 
-/** 
- * a flexible(dynamic) function to Sort movies by an attribute
- * @param sortAttr pass in 'id', 'title', or 'rank' to sort by
+/**
+ *  a flexible(dynamic) function to Sort movies by an attribute
+ *  @param sortAttr pass in 'id', 'title', or 'rank' to sort by
  */
 
 function sortMoviesByAttr(movies, sortAttr) {
@@ -122,35 +118,34 @@ function sortMoviesByAttr(movies, sortAttr) {
 
         // {title: "Fight Club",rank: 10,id: "tt0137523"}
         let max = getMaxMovieObject(movies, j, sortAttr);
-        let maxObject = max["MaxMovieObject"];
-        let maxLocation = max["MaxMovieIndex"];;
+        let maxObject = max.max_object;
+        let maxlocation = max.max_ocation;
 
-        // Swap between the first and max object in Movie Database 
-        movies[maxLocation] = movies[j];
+        // Swap between the first and max object in Movie Database
+        movies[maxlocation] = movies[j];
         movies[j] = maxObject;
     }
     // return the sorted Movie Database
     return movies;
 }
 
-
 /**
- *  a helper function for sorting 
+ *  a helper function for sortMoviesByAttr()
  *  Retrieve the max movie object based on attribute(finding max movie)
  */
 
 function getMaxMovieObject(movies, start, sortAttr) {
-    // label given start object value to be the movie object
+    // label first movie to be the maximum
     let maxObject = movies[start];
-    let maxLocation = start;
-    // iterate over the array (Movie Database) starting from the given index +1
+    let maxlocation = start;
+    // iterate over the array (Movie Database) starting from the given index + 1
     for (let i = start + 1; i < movies.length; i++) {
         if (movies[i][sortAttr] > maxObject[sortAttr]) {
             // find max object and its index
             maxObject = movies[i];
-            maxLocation = i;
+            maxlocation = i;
         }
     }
     // return object with max attribute and its index
-    return { MaxMovieObject: maxObject, MaxMovieIndex: maxLocation };
+    return { max_object: maxObject, max_ocation: maxlocation };
 }
