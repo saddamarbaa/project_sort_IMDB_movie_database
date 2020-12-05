@@ -1,5 +1,4 @@
 /**
- * TODO: Sort movies by id, rank, and title through dynamic function
  * TODO: Create helper function called getMaxMovieObject() for finding max movie
  */
 
@@ -55,12 +54,12 @@ let movies = [{
         rank: 7,
         id: "tt0050083"
     }
-]
+];
 
 window.onload = function() {
     // call sortMoviesByRank() function
     let sortMovies = sortMoviesByRank(movies);
-    sortMovies = sortMoviesByAttr(movies, "id");
+    sortMovies = sortMoviesByAttr(movies, "title");
 
     // Display Movies list
 
@@ -115,51 +114,32 @@ function sortMoviesByRank(movies) {
     return movies;
 }
 
-/**
- * Sort movies by an attribute
+/** 
+ * a flexible(dynamic) function to Sort movies by an attribute
  * @param sortAttr pass in 'id', 'title', or 'rank' to sort by
  */
-function sortMoviesByAttr(movies, sortAttr) {
 
+function sortMoviesByAttr(movies, sortAttr) {
     for (let j = 0; j < movies.length - 1; j++) {
+
         // {title: "Fight Club",rank: 10,id: "tt0137523"}
         let maxObject = movies[j];
         let maxLocation = j;
 
         for (let i = j; i < movies.length; i++) {
-            if (sortAttr == 'rank') {
-                // if we found object with higher rank then replace maxObject with the new object 
-                // movies[i]["rank"] > maxObject["rank"]
-                if (movies[i].rank > maxObject.rank) {
-                    maxObject = movies[i];
-                    maxLocation = i;
-                }
-            } else if (sortAttr == 'id') {
-                // if we found object with higher rank then replace maxObject with the new object 
-                // movies[i]["rank"] > maxObject["rank"]
-                if (movies[i].id > maxObject.id) {
-                    maxObject = movies[i];
-                    maxLocation = i;
-                }
-            } else if (sortAttr == 'title') {
-                // if we found object with higher rank then replace maxObject with the new object 
-                // movies[i]["rank"] > maxObject["rank"]
-                if (movies[i].title > maxObject.title) {
-                    maxObject = movies[i];
-                    maxLocation = i;
-                }
-            } else {
-                return;
+            // if we found object with higher sortAttr replace maxObject with the new object 
+            if (movies[i][sortAttr] > maxObject[sortAttr]) {
+                maxObject = movies[i];
+                maxLocation = i;
             }
         }
-        // Swap the first and max object in Movie Database 
+        // Swap between the first and max object in Movie Database 
         movies[maxLocation] = movies[j];
         movies[j] = maxObject;
     }
     // return the sorted Movie Database
     return movies;
 }
-
 
 
 /**
