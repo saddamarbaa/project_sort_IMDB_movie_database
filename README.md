@@ -1,6 +1,6 @@
 # Project: Sort IMDB Movie Database
 
-Project: Sort IMDB Movie Database
+Project: Sort IMDB Movie Database (vanilla javascript)
 
 GitHub Pages(URL FOR TESTING) :  https://saddamarbaa.github.io/sort-IMDB-movie-database/
 
