@@ -3,8 +3,7 @@ This is a code repository for project : Sort IMDB Movie Database in this project
 
 Project: Sort IMDB Movie Database (vanilla javascript)
 
-GitHub Pages(URL FOR TESTING) :  https://saddamarbaa.github.io/sort-IMDB-movie-database/
-
+Click the link blow to see the [GitHub Pages]: (https://saddamarbaa.github.io/project_sort_IMDB_movie_database/)
 
 
 ## Sort movies list by Rank
