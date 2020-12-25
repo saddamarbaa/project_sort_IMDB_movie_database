@@ -1,4 +1,5 @@
 # Project: Sort IMDB Movie Database
+This is a code repository for project : Sort IMDB Movie Database in this project I learned more about Sorting Algorithms. 
 
 Project: Sort IMDB Movie Database (vanilla javascript)
 
